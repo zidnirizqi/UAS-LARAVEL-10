@@ -8,7 +8,10 @@
         <p class="lead">Sistem Pendukung Keputusan untuk membantu Anda memilih perusahaan logistik terbaik berdasarkan kriteria yang telah ditentukan.</p>
     </div>
 
-    <div class="row justify-content-center">
+    <div class="content" style="min-height: 200px;">
+    </div>
+
+    <div class="row justify-content-center mt-5">
         <div class="col-md-4">
             <div class="card mb-4 shadow-sm">
                 <div class="card-body text-center">
