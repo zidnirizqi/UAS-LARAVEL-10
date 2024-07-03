@@ -12,16 +12,13 @@
                             <a class="nav-link {{ ($title === "home") ? 'active' : '' }}" href="/home">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link {{ ($title === "/kriteria/dataKriteria") ? 'active' : '' }}" href="/kriteria/dataKriteria"> Data Kriteria</a>
+                            <a class="nav-link {{ ($title === "dataKriteria") ? 'active' : '' }}" href="/kriteria/dataKriteria"> Data Kriteria</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link {{ ($title === "/alternatif/dataAlternatif") ? 'active' : '' }}" href="/alternatif/dataAlternatif"> Data Alternatif</a>
+                            <a class="nav-link {{ ($title === "dataAlternatif") ? 'active' : '' }}" href="/alternatif/dataAlternatif"> Data Alternatif</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link {{ ($title === "matrixScore") ? 'active' : '' }}" href="/matrixScore"> Matrix Score</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link {{ ($title === "hasilPerhitungan") ? 'active' : '' }}" href="/hasilPerhitungan"> Hasil Perhitungan </a>
+                            <a class="nav-link {{ ($title === "hasil") ? 'active' : '' }}" href="/hasilHitung/hasil"> Hasil Perhitungan </a>
                         </li>
                     </ul>
                 </div>

@@ -2,86 +2,79 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Kriteria;
+use App\Models\Criteria;
 use Illuminate\Http\Request;
-use App\Http\Requests\StoreKriteriaRequest;
-use App\Http\Requests\UpdateKriteriaRequest;
 
 class KriteriaController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-        $criterias = Kriteria::all();
-        return view('/kriteria/dataKriteria', [
+        $criterias = Criteria::all();
+        return view('kriteria.dataKriteria', [
             'criterias' => $criterias,
-            'title' => '/kriteria/dataKriteria'
+            'title' => 'dataKriteria'
         ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
-        return view('/kriteria/create', [
-            'title' => '/kriteria/create'
+        return view('kriteria.createKriteria', [
+            'title' => 'kriteria.createKriteria'
         ]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
         $request->validate([
             'nama_kriteria' => 'required',
             'kode_kriteria' => 'required',
             'bobot' => 'required',
-            'tipe' =>  'required'
+            'tipe' => 'required'
         ]);
 
-        Kriteria::create([
+        Criteria::create([
             'nama_kriteria' => $request->nama_kriteria,
             'kode_kriteria' => $request->kode_kriteria,
             'bobot' => $request->bobot,
             'tipe' => $request->tipe
         ]);
 
-        return redirect('kategori/create')->with('status','berhasil');
+        return redirect('/kriteria/createKriteria')->with('status', 'Kriteria berhasil ditambahkan');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Kriteria $kriteria)
+    public function edit(int $id)
     {
-        //
+        $criteria = Criteria::findOrFail($id);
+
+        return view('kriteria.editKriteria', compact('criteria'), [
+            'title' => 'kriteria.editKriteria'
+        ]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Kriteria $kriteria)
+    public function update(Request $request, int $id)
     {
-        //
+        $request->validate([
+            'nama_kriteria' => 'required',
+            'kode_kriteria' => 'required',
+            'bobot' => 'required',
+            'tipe' => 'required'
+        ]);
+
+        Criteria::findOrFail($id)->update([
+            'nama_kriteria' => $request->nama_kriteria,
+            'kode_kriteria' => $request->kode_kriteria,
+            'bobot' => $request->bobot,
+            'tipe' => $request->tipe
+        ]);
+
+        return redirect()->back()->with('status', 'Kriteria berhasil diupdate');
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(UpdateKriteriaRequest $request, Kriteria $kriteria)
+    public function destroy(int $id)
     {
-        //
-    }
+        $criteria = Criteria::findOrFail($id);
+        $criteria->delete();
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Kriteria $kriteria)
-    {
-        //
+        return redirect()->back()->with('status', 'Kriteria berhasil dihapus');
     }
 }

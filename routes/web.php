@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Controllers\KriteriaController;
+use App\Http\Controllers\AlternatifController;
+use App\Http\Controllers\HasilController;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,12 +33,18 @@ Route::get('/home', function () {
 //     ]);
 // });
 
-Route::get('/kriteria/dataKriteria', [App\Http\Controllers\KriteriaController::class, 'index']);
-Route::get('/kriteria/create', [App\Http\Controllers\KriteriaController::class, 'create']);
-Route::post('/kriteria/create', [App\Http\Controllers\KriteriaController::class, 'store']);
+Route::get('/kriteria/dataKriteria', [KriteriaController::class, 'index']);
+Route::get('/kriteria/createKriteria', [KriteriaController::class, 'create']);
+Route::post('/kriteria/createKriteria', [KriteriaController::class, 'store']);
+Route::get('/{id}/editKriteria', [KriteriaController::class, 'edit']);
+Route::put('/{id}/editKriteria', [KriteriaController::class, 'update']);
+Route::get('/{id}/deleteKriteria', [KriteriaController::class, 'destroy']);
 
-Route::get('/alternatif/dataAlternatif', function () {
-    return view('alternatif.dataAlternatif', [
-        'title' => 'dataAlternatif'
-    ]);
-});
+Route::get('/alternatif/dataAlternatif', [AlternatifController::class, 'index']);
+Route::get('/alternatif/createAlternatif', [AlternatifController::class, 'create']);
+Route::post('/alternatif/createAlternatif', [AlternatifController::class, 'store']);
+Route::get('/{id}/editAlternatif', [AlternatifController::class, 'edit']);
+Route::put('/{id}/editAlternatif', [AlternatifController::class, 'update']);
+Route::get('/{id}/deleteAlternatif', [AlternatifController::class, 'destroy']);
+
+Route::get('/hasilHitung/hasil', [HasilController::class, 'hasil']);

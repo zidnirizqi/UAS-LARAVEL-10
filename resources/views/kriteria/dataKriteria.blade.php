@@ -3,7 +3,7 @@
 @section('container')
 <table class="table table-sm table-striped table-hover">
 
-    <a href="/kriteria/create" class="btn btn-primary mb-3">Create</a>
+    <a href="/kriteria/createKriteria" class="btn btn-primary mb-3">Create</a>
 
     <thead class="table-dark">
         <tr>
@@ -16,6 +16,22 @@
         </tr>
     </thead>
     <tbody>
+        @foreach ($criterias as $item)
+        <tr>
+            <th>{{ $item->id }}</th>
+            <td>{{ $item->nama_kriteria }}</td>
+            <td>{{ $item->kode_kriteria }}</td>
+            <td>{{ $item->bobot }}</td>
+            <td>{{ $item->tipe }}</td>
+            <td>
+                <a href="{{ url('/' .$item->id . '/editKriteria') }}" class="btn btn-success btn-sm mx-1">Edit</a>
+                <a href="{{ url('/' .$item->id . '/deleteKriteria') }}" class="btn btn-success btn-sm mx-1"
+                    onclick="return confirm('Are You Sure?')">Delete</a>
+            </td>
+        </tr>
+        
+            
+        @endforeach
         
     </tbody>
 </table>
