@@ -1,7 +1,6 @@
 @extends('layouts.main')
 
 @section('container')
-
 <div class="container mt-5">
     <div class="text-center mb-5">
         <h1>SPK Pemilihan Perusahaan Logistik Terbaik</h1>
@@ -17,7 +16,7 @@
                 <div class="card-body text-center">
                     <h5 class="card-title">Data Alternatif</h5>
                     <p class="card-text">Kelola data perusahaan logistik yang dievaluasi.</p>
-                    {{-- <a href="{{ url('alternatif') }}" class="btn btn-primary">Data Alternatif</a> --}}
+                    <a href="{{ url('alternatif/dataAlternatif') }}" class="btn btn-primary">Data Alternatif</a>
                 </div>
             </div>
         </div>
@@ -26,7 +25,7 @@
                 <div class="card-body text-center">
                     <h5 class="card-title">Data Kriteria</h5>
                     <p class="card-text">Kelola data kriteria yang digunakan untuk evaluasi.</p>
-                    {{-- <a href="{{ url('kriteria') }}" class="btn btn-primary">Data Kriteria</a> --}}
+                    <a href="{{ url('kriteria/dataKriteria') }}" class="btn btn-primary">Data Kriteria</a>
                 </div>
             </div>
         </div>
@@ -35,11 +34,10 @@
                 <div class="card-body text-center">
                     <h5 class="card-title">Hasil Perhitungan</h5>
                     <p class="card-text">Lihat hasil perhitungan dan evaluasi perusahaan logistik.</p>
-                    {{-- <a href="{{ url('hasil') }}" class="btn btn-success">Hasil Perhitungan</a> --}}
+                    <a href="{{ url('hasilHitung/hasil') }}" class="btn btn-success">Hasil Perhitungan</a>
                 </div>
             </div>
         </div>
     </div>
 </div>
-
 @endsection
